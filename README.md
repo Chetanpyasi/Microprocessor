@@ -61,7 +61,7 @@ git clone https://github.com/Chetanpyasi/Microprocessor.git
 cd Microprocessor
 ```
 
-Running Simulations
+### Running Simulations
 Open Microprocessor.xpr in Vivado
 
 Run behavioral simulation
