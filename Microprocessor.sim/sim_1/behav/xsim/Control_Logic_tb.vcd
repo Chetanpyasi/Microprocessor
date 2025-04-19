@@ -1,0 +1,146 @@
+$date
+   Thu Apr 17 22:06:42 2025
+$end
+
+$version
+  2024.2.0
+  $dumpfile ("Control_Logic_tb.vcd") 
+$end
+
+$timescale
+  1ps
+$end
+
+$scope module Control_Logic_tb $end
+$var reg 2 ! stage [1:0] $end
+$var reg 12 " IR [11:0] $end
+$var reg 4 # SR [3:0] $end
+$var wire 1 $ PC_E $end
+$var wire 1 % Acc_E $end
+$var wire 1 & SR_E $end
+$var wire 1 ' IR_E $end
+$var wire 1 ( DR_E $end
+$var wire 1 ) PMem_E $end
+$var wire 1 * DMem_E $end
+$var wire 1 + DMem_WE $end
+$var wire 1 , ALU_E $end
+$var wire 1 - MUX1_Sel $end
+$var wire 1 . MUX2_Sel $end
+$var wire 1 / PMem_LE $end
+$var wire 4 0 ALU_Mode [3:0] $end
+$scope module uut $end
+$var wire 2 1 stage [1:0] $end
+$var wire 12 2 IR [11:0] $end
+$var wire 4 3 SR [3:0] $end
+$var reg 1 4 PC_E $end
+$var reg 1 5 Acc_E $end
+$var reg 1 6 SR_E $end
+$var reg 1 7 IR_E $end
+$var reg 1 8 DR_E $end
+$var reg 1 9 PMem_E $end
+$var reg 1 : DMem_E $end
+$var reg 1 ; DMem_WE $end
+$var reg 1 < ALU_E $end
+$var reg 1 = MUX1_Sel $end
+$var reg 1 > MUX2_Sel $end
+$var reg 1 ? PMem_LE $end
+$var reg 4 @ ALU_Mode [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+
+#0
+$dumpvars
+b0 !
+b101010111100 "
+b1111 #
+1$
+1%
+1&
+1'
+0(
+0)
+0*
+0+
+0,
+0-
+0.
+0/
+b0 0
+b0 1
+b101010111100 2
+b1111 3
+14
+15
+16
+17
+08
+09
+0:
+0;
+0<
+0=
+0>
+0?
+b0 @
+$end
+
+#10000
+b1 !
+0$
+0%
+0&
+0'
+1)
+1,
+1-
+b1 1
+04
+05
+06
+07
+19
+1<
+1=
+
+#20000
+b10 !
+1'
+0)
+1*
+1+
+0,
+0-
+1.
+b10 1
+17
+09
+1:
+1;
+0<
+0=
+1>
+
+#30000
+b11 !
+1%
+0'
+0*
+0+
+1,
+0.
+b11 1
+15
+07
+0:
+0;
+1<
+0>
+
+#40000
+bx !
+0%
+0,
+bx 1
+05
+0<

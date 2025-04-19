@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Control_Logic_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Control_Logic_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="77.461 ns"></ZoomEndTime>
+      <Cursor1Time time="50.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="257"></NameColumnWidth>
+      <ValueColumnWidth column_width="83"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/Control_Logic_tb/stage" type="array">
+      <obj_property name="ElementShortName">stage[1:0]</obj_property>
+      <obj_property name="ObjectShortName">stage[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/IR" type="array">
+      <obj_property name="ElementShortName">IR[11:0]</obj_property>
+      <obj_property name="ObjectShortName">IR[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/SR" type="array">
+      <obj_property name="ElementShortName">SR[3:0]</obj_property>
+      <obj_property name="ObjectShortName">SR[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/PC_E" type="logic">
+      <obj_property name="ElementShortName">PC_E</obj_property>
+      <obj_property name="ObjectShortName">PC_E</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/Acc_E" type="logic">
+      <obj_property name="ElementShortName">Acc_E</obj_property>
+      <obj_property name="ObjectShortName">Acc_E</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/SR_E" type="logic">
+      <obj_property name="ElementShortName">SR_E</obj_property>
+      <obj_property name="ObjectShortName">SR_E</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/IR_E" type="logic">
+      <obj_property name="ElementShortName">IR_E</obj_property>
+      <obj_property name="ObjectShortName">IR_E</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/DR_E" type="logic">
+      <obj_property name="ElementShortName">DR_E</obj_property>
+      <obj_property name="ObjectShortName">DR_E</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/PMem_E" type="logic">
+      <obj_property name="ElementShortName">PMem_E</obj_property>
+      <obj_property name="ObjectShortName">PMem_E</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/DMem_E" type="logic">
+      <obj_property name="ElementShortName">DMem_E</obj_property>
+      <obj_property name="ObjectShortName">DMem_E</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/DMem_WE" type="logic">
+      <obj_property name="ElementShortName">DMem_WE</obj_property>
+      <obj_property name="ObjectShortName">DMem_WE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/ALU_E" type="logic">
+      <obj_property name="ElementShortName">ALU_E</obj_property>
+      <obj_property name="ObjectShortName">ALU_E</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/MUX1_Sel" type="logic">
+      <obj_property name="ElementShortName">MUX1_Sel</obj_property>
+      <obj_property name="ObjectShortName">MUX1_Sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/MUX2_Sel" type="logic">
+      <obj_property name="ElementShortName">MUX2_Sel</obj_property>
+      <obj_property name="ObjectShortName">MUX2_Sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/PMem_LE" type="logic">
+      <obj_property name="ElementShortName">PMem_LE</obj_property>
+      <obj_property name="ObjectShortName">PMem_LE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Control_Logic_tb/ALU_Mode" type="array">
+      <obj_property name="ElementShortName">ALU_Mode[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_Mode[3:0]</obj_property>
+   </wvobject>
+</wave_config>

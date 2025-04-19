@@ -1,0 +1,1584 @@
+$date
+   Thu Apr 17 18:46:30 2025
+$end
+
+$version
+  2024.2.0
+  $dumpfile ("top_tb.vcd") 
+$end
+
+$timescale
+  1ps
+$end
+
+$scope module top_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " rst $end
+$var wire 8 # acc_out [7:0] $end
+$var wire 8 $ pc_out [7:0] $end
+$var wire 4 % sr_out [3:0] $end
+$var wire 12 & ir_out [11:0] $end
+$var wire 8 ' dr_out [7:0] $end
+$var wire 4 ( led [3:0] $end
+$scope module uut $end
+$var wire 1 ) clk $end
+$var wire 1 * rst $end
+$var wire 4 ( led [3:0] $end
+$var wire 8 # acc_out [7:0] $end
+$var wire 8 $ pc_out [7:0] $end
+$var wire 4 % sr_out [3:0] $end
+$var wire 12 & ir_out [11:0] $end
+$var wire 8 ' dr_out [7:0] $end
+$var reg 2 + current_state [1:0] $end
+$var reg 2 , next_state [1:0] $end
+$var reg 8 - PC [7:0] $end
+$var reg 8 . DR [7:0] $end
+$var reg 8 / Acc [7:0] $end
+$var reg 12 0 IR [11:0] $end
+$var reg 4 1 SR [3:0] $end
+$var reg 1 2 PC_clr $end
+$var reg 1 3 Acc_clr $end
+$var reg 1 4 SR_clr $end
+$var reg 1 5 DR_clr $end
+$var reg 1 6 IR_clr $end
+$var wire 1 7 PC_E $end
+$var wire 1 8 Acc_E $end
+$var wire 1 9 SR_E $end
+$var wire 1 : DR_E $end
+$var wire 1 ; IR_E $end
+$var wire 1 < PMem_E $end
+$var wire 1 = DMem_E $end
+$var wire 1 > DMem_WE $end
+$var wire 1 ? ALU_E $end
+$var wire 1 @ PMem_LE $end
+$var wire 1 A MUX1_Sel $end
+$var wire 1 B MUX2_Sel $end
+$var wire 4 C ALU_Mode [3:0] $end
+$var wire 8 D Adder_Out [7:0] $end
+$var wire 8 E ALU_Oper2 [7:0] $end
+$var wire 8 F ALU_Out [7:0] $end
+$var wire 12 G IR_updated [11:0] $end
+$var wire 8 H PC_updated [7:0] $end
+$var wire 8 I DR_updated [7:0] $end
+$var wire 4 J SR_updated [3:0] $end
+$scope module ALU_unit $end
+$var wire 8 K Operand1 [7:0] $end
+$var wire 8 E Operand2 [7:0] $end
+$var wire 1 ? E $end
+$var wire 4 C Mode [3:0] $end
+$var wire 4 L CFlags [3:0] $end
+$var reg 8 M Out [7:0] $end
+$var reg 4 N Flags [3:0] $end
+$upscope $end
+$scope module MUX1_unit $end
+$var wire 8 D In1 [7:0] $end
+$var wire 8 O In2 [7:0] $end
+$var wire 1 A Sel $end
+$var reg 8 P Out [7:0] $end
+$upscope $end
+$scope module DMem_unit $end
+$var wire 1 ) clk $end
+$var wire 1 = E $end
+$var wire 1 > WE $end
+$var wire 4 Q Addr [3:0] $end
+$var wire 8 F DI [7:0] $end
+$var reg 8 R DO [7:0] $end
+$upscope $end
+$scope module PC_Adder_unit $end
+$var wire 8 S In [7:0] $end
+$var reg 8 T Out [7:0] $end
+$upscope $end
+$scope module Control_Logic_Unit $end
+$var wire 2 U stage [1:0] $end
+$var wire 12 V IR [11:0] $end
+$var wire 4 J SR [3:0] $end
+$var reg 1 W PC_E $end
+$var reg 1 X Acc_E $end
+$var reg 1 Y SR_E $end
+$var reg 1 Z IR_E $end
+$var reg 1 [ DR_E $end
+$var reg 1 \ PMem_E $end
+$var reg 1 ] DMem_E $end
+$var reg 1 ^ DMem_WE $end
+$var reg 1 _ ALU_E $end
+$var reg 1 ` MUX1_Sel $end
+$var reg 1 a MUX2_Sel $end
+$var reg 1 b PMem_LE $end
+$var reg 4 c ALU_Mode [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+
+#0
+$dumpvars
+0!
+1"
+bx #
+bx $
+bx %
+bx &
+bx '
+bx (
+0)
+1*
+bx +
+bx ,
+bx -
+bx .
+bx /
+bx 0
+bx 1
+x2
+x3
+x4
+x5
+x6
+x7
+x8
+x9
+x:
+x;
+x<
+x=
+x>
+x?
+x@
+xA
+xB
+bx C
+bx D
+bz E
+bx F
+bz G
+bx H
+bx I
+bx J
+bx K
+bx L
+bx M
+bx N
+bx O
+bx P
+bx Q
+bx R
+bx S
+bx T
+bx U
+bx V
+xW
+xX
+xY
+xZ
+x[
+x\
+x]
+x^
+x_
+x`
+xa
+xb
+bx c
+$end
+
+#5000
+1!
+b0 #
+b0 $
+b0 %
+b0 (
+1)
+b0 +
+b1 ,
+b0 -
+b0 /
+b0 1
+12
+13
+14
+15
+16
+17
+18
+19
+0:
+1;
+0<
+0=
+0>
+0?
+0@
+0A
+0B
+b0 C
+b1 D
+b0 F
+b1 H
+bz I
+b0 J
+b0 K
+b0 L
+b0 M
+b0 N
+b1 P
+bz R
+b0 S
+b1 T
+b0 U
+1W
+1X
+1Y
+1Z
+0[
+0\
+0]
+0^
+0_
+0`
+0a
+0b
+b0 c
+
+#10000
+0!
+0)
+
+#15000
+1!
+b0xxxxxxxx &
+b0 '
+1)
+b0 .
+b0xxxxxxxx 0
+b0xxxxxxxx V
+
+#20000
+0!
+0"
+0)
+0*
+
+#25000
+1!
+b1 $
+b0 &
+1)
+b1 +
+b10 ,
+b1 -
+b0 0
+02
+03
+04
+05
+06
+07
+08
+09
+0;
+1<
+1?
+1A
+b10 D
+bx F
+b0 H
+bx0x J
+bx M
+bx0x N
+b0 O
+b0 P
+b0 Q
+b1 S
+b10 T
+b1 U
+b0 V
+0W
+0X
+0Y
+0Z
+1\
+1_
+1`
+
+#30000
+0!
+0)
+
+#35000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#40000
+0!
+0)
+
+#45000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#50000
+0!
+0)
+
+#55000
+1!
+bx #
+bx (
+1)
+b1 +
+b10 ,
+bx /
+08
+1<
+1A
+b0 H
+bx K
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#60000
+0!
+0)
+
+#65000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#70000
+0!
+0)
+
+#75000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#80000
+0!
+0)
+
+#85000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#90000
+0!
+0)
+
+#95000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#100000
+0!
+0)
+
+#105000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#110000
+0!
+0)
+
+#115000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#120000
+0!
+0)
+
+#125000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#130000
+0!
+0)
+
+#135000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#140000
+0!
+0)
+
+#145000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#150000
+0!
+0)
+
+#155000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#160000
+0!
+0)
+
+#165000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#170000
+0!
+0)
+
+#175000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#180000
+0!
+0)
+
+#185000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#190000
+0!
+0)
+
+#195000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#200000
+0!
+0)
+
+#205000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#210000
+0!
+0)
+
+#215000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#220000
+0!
+0)
+
+#225000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#230000
+0!
+0)
+
+#235000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#240000
+0!
+0)
+
+#245000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#250000
+0!
+0)
+
+#255000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#260000
+0!
+0)
+
+#265000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#270000
+0!
+0)
+
+#275000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#280000
+0!
+0)
+
+#285000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#290000
+0!
+0)
+
+#295000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#300000
+0!
+0)
+
+#305000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#310000
+0!
+0)
+
+#315000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#320000
+0!
+0)
+
+#325000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#330000
+0!
+0)
+
+#335000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#340000
+0!
+0)
+
+#345000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#350000
+0!
+0)
+
+#355000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#360000
+0!
+0)
+
+#365000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#370000
+0!
+0)
+
+#375000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#380000
+0!
+0)
+
+#385000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#390000
+0!
+0)
+
+#395000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#400000
+0!
+0)
+
+#405000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#410000
+0!
+0)
+
+#415000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#420000
+0!
+0)
+
+#425000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#430000
+0!
+0)
+
+#435000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#440000
+0!
+0)
+
+#445000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#450000
+0!
+0)
+
+#455000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#460000
+0!
+0)
+
+#465000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#470000
+0!
+0)
+
+#475000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#480000
+0!
+0)
+
+#485000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
+
+#490000
+0!
+0)
+
+#495000
+1!
+1)
+b11 +
+b1 ,
+18
+0;
+0=
+0>
+1?
+0B
+bx F
+bx0x J
+bx M
+bx0x N
+b11 U
+1X
+0Z
+0]
+0^
+1_
+0a
+
+#500000
+0!
+0)
+
+#505000
+1!
+1)
+b1 +
+b10 ,
+08
+1<
+1A
+b0 H
+b0 P
+b1 U
+0X
+1\
+1_
+1`
+
+#510000
+0!
+0)
+
+#515000
+1!
+1)
+b10 +
+b11 ,
+1;
+0<
+1=
+1>
+0?
+0A
+1B
+b0 F
+b10 H
+b0 J
+b0 M
+b0 N
+b10 P
+b10 U
+1Z
+0\
+1]
+1^
+0_
+0`
+1a
