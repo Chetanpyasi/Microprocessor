@@ -59,3 +59,40 @@ This project demonstrates a simple, educational 8-bit microprocessor implemented
 ```bash
 git clone https://github.com/Chetanpyasi/Microprocessor.git
 cd Microprocessor
+```
+
+Running Simulations
+Open Microprocessor.xpr in Vivado
+
+Run behavioral simulation
+
+Analyze waveform and output console for expected results
+
+### 🗂 Project Structure
+bash
+Copy
+Edit
+Microprocessor/
+├── Microprocessor.srcs/     # Verilog source files
+├── Microprocessor.sim/      # Testbenches and simulation outputs
+├── Microprocessor.xpr       # Vivado project file
+├── *.hw, *.cache, *.runs    # Vivado generated directories
+📷 Example Simulation
+Example waveform output:
+
+PC increments on clock
+
+ALU performs ADD operation
+
+Data memory read/write verified
+
+You can customize the program memory to simulate different instruction sequences.
+
+### 📜 License
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+### ✍️ Author
+Chetan Pyasi
+
+
+
