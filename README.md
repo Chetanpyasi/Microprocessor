@@ -68,25 +68,8 @@ Run behavioral simulation
 
 Analyze waveform and output console for expected results
 
-### 🗂 Project Structure
-bash
-Copy
-Edit
-Microprocessor/
-├── Microprocessor.srcs/     # Verilog source files
-├── Microprocessor.sim/      # Testbenches and simulation outputs
-├── Microprocessor.xpr       # Vivado project file
-├── *.hw, *.cache, *.runs    # Vivado generated directories
-📷 Example Simulation
-Example waveform output:
 
-PC increments on clock
-
-ALU performs ADD operation
-
-Data memory read/write verified
-
-You can customize the program memory to simulate different instruction sequences.
+You can customize the program memory to simulate different instruction sequences by modifying program.mem inside Microprocessor.srcs\sources_1\new.
 
 ### 📜 License
 This project is licensed under the MIT License. See the LICENSE file for more details.
