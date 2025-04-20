@@ -25,85 +25,76 @@ module top (
     output [7:0] debug_out
 );
 
-    wire [7:0] pc_out;
-    wire [7:0] adder_out;
-    wire [11:0] ir_out;
-    wire [11:0] pmem_out;
-    wire [7:0] dmem_out;
-    wire [7:0] alu_out;
-    wire [7:0] acc_out;
-    wire [7:0] dr_out;
+    wire [7:0] pc_out,adder_out,dmem_out,alu_out,acc_out,dr_out,mux2_out;
+    wire [11:0] ir_out,pmem_out;
     wire [3:0] sr_out;
-    wire [7:0] mux2_out;
     
-    wire pc_e;
-    wire acc_e;
-    wire sr_e;
-    wire ir_e;
-    wire dr_e;
-    wire pmem_e;
-    wire dmem_e;
+    wire pc_e,acc_e,sr_e,ir_e,dr_e,pmem_e,dmem_e,alu_e;
     wire dmem_we;
-    wire alu_e;
     wire mux2_sel;
     wire pmem_le;
-    wire [3:0] alu_mode;
-    wire [3:0] alu_flags;
+    wire [3:0] alu_mode,alu_flags;
 
     reg [1:0] stage;
-    reg [7:0] PC;
     
     parameter HLT = 4'b1111;  
 
     
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            PC <= 8'b0;
-        end else if (pc_e && (ir_out[11:8] != HLT)) begin  // Freeze if HLT
-            PC <= adder_out;
-        end
-    end
-    assign pc_out = PC;
+    ProgramCounter pc_inst (
+        .clk(clk),
+        .reset(reset),
+        .enable(pc_e),
+        .next_pc(adder_out),
+        .opcode(ir_out[11:8]),
+        .pc_out(pc_out)
+    );
 
-    reg [11:0] IR;
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            IR <= 12'b0;
-        end else if (ir_e) begin
-            IR <= pmem_out;
-        end
-    end
-    assign ir_out = IR;
 
-    reg [7:0] ACC;
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            ACC <= 8'b0;
-        end else if (acc_e) begin
-            ACC <= alu_out;
-        end
-    end
-    assign acc_out = ACC;
+    
+    // Instantiate the instruction_register module
+    instruction_register IR_unit (
+        .clk(clk),
+        .reset(reset),
+        .ir_e(ir_e),
+        .pmem_out(pmem_out),
+        .ir_out(ir_out)
+    );
 
-    reg [7:0] DR;
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            DR <= 8'b0;
-        end else if (dr_e) begin
-            DR <= dmem_out;
-        end
-    end
-    assign dr_out = DR;
 
-    reg [3:0] SR;
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            SR <= 4'b0;
-        end else if (sr_e) begin
-            SR <= alu_flags;
-        end
-    end
-    assign sr_out = SR;
+    
+    // Instantiate the accumulator
+    accumulator ACC_unit (
+        .clk(clk),
+        .reset(reset),
+        .acc_en(acc_e),     // Make sure `acc_en` is your control signal
+        .alu_out(alu_out),   // Connect from your ALU output
+        .acc_out(acc_out)
+    );
+
+
+    wire [7:0] dr_out;
+    
+    // Instantiate the data_register module
+    data_register DR_unit (
+        .clk(clk),
+        .reset(reset),
+        .dr_e(dr_e),
+        .dmem_out(dmem_out),
+        .dr_out(dr_out)
+    );
+    
+
+    wire [3:0] sr_out;
+    
+    // Instantiate the status_register module
+    status_register SR_unit (
+        .clk(clk),
+        .reset(reset),
+        .sr_e(sr_e),
+        .alu_flags(alu_flags),
+        .sr_out(sr_out)
+    );
+
 
     always @(posedge clk or posedge reset) begin
         if (reset) begin
@@ -156,51 +147,29 @@ module top (
         .DO(dmem_out)
     );
 
-    reg [11:0] pmem [0:255];
-    reg [11:0] pmem_do;
+    wire [11:0] pmem_out;
     
-    always @(posedge clk) begin
-        if (pmem_le) begin
-            pmem[pc_out] <= {4'b0, acc_out};
-        end
-    end
+    // Instantiate the program_memory module
+    program_memory pmem_unit (
+        .clk(clk),
+        .pmem_le(pmem_le),
+        .pmem_e(pmem_e),
+        .pc_out(pc_out),
+        .acc_out(acc_out),
+        .pmem_out(pmem_out)
+    );
     
-    always @(*) begin
-        if (pmem_e) begin
-            pmem_do = pmem[pc_out];
-        end else begin
-            pmem_do = 12'b0;
-        end
-    end
-    assign pmem_out = pmem_do;
-
-    reg [7:0] mux2_out_reg;
-    always @(*) begin
-        if (mux2_sel) begin
-            mux2_out_reg = dr_out;
-        end else begin
-            mux2_out_reg = ir_out[7:0];
-        end
-    end
-    assign mux2_out = mux2_out_reg;
-
+    wire [7:0] mux2_out;
+    
+    // Instantiate the mux2 module
+    mux2 mux2_unit (
+        .mux2_sel(mux2_sel),   // Select signal to choose between dr_out and ir_out[7:0]
+        .dr_out(dr_out),       // Data input from dr_out
+        .ir_out(ir_out),       // Instruction register output (12 bits, only lower 8 bits used)
+        .mux2_out(mux2_out)    // Output of the mux2
+    );
     assign debug_out = acc_out;
-endmodule
-
-
-module MUX2 (
-    input [7:0] In1,   // 8-bit input 1
-    input [7:0] In2,   // 8-bit input 2
-    input Sel,         // 1-bit select signal
-    output reg [7:0] Out  // 8-bit output
-);
-
-    always @(*) begin
-        if (Sel) begin
-            Out = In2;
-        end else begin
-            Out = In1;
-        end
-    end
 
 endmodule
+
+

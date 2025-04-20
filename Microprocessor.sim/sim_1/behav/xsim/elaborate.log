@@ -5,5 +5,24 @@ Running: C:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 20 for port 'acc_out' [C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/top.v:158]
+WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 20 for port 'pmem_out' [C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/top.v:159]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.instruction_register
+Compiling module xil_defaultlib.accumulator
+Compiling module xil_defaultlib.data_register
+Compiling module xil_defaultlib.status_register
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.Control_Logic
+Compiling module xil_defaultlib.DMem
+Compiling module xil_defaultlib.program_memory
+Compiling module xil_defaultlib.mux2
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_tb_behav

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 04/10/2025 03:58:54 PM
+// Create Date: 04/20/2025 11:30:51 PM
 // Design Name: 
-// Module Name: MUX1
+// Module Name: mux2
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,22 +20,24 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module MUX1 (
-    input [7:0] In1,   // 8-bit input 1
-    input [7:0] In2,   // 8-bit input 2
-    input Sel,         // 1-bit select signal
-    output reg [7:0] Out  // 8-bit output
+module mux2 (
+    input wire mux2_sel,
+    input wire [7:0] dr_out,
+    input wire [11:0] ir_out,  // Assuming `ir_out` is 12 bits, using the lower 8 bits
+    output wire [7:0] mux2_out
 );
 
-    // Always block for combinational logic
+    reg [7:0] mux2_out_reg;
+
     always @(*) begin
-        if (Sel) begin
-            Out = In2;  // If Sel is 1, select In2
+        if (mux2_sel) begin
+            mux2_out_reg = dr_out;
         end else begin
-            Out = In1;  // If Sel is 0, select In1
+            mux2_out_reg = ir_out[7:0];
         end
     end
 
-endmodule
+    assign mux2_out = mux2_out_reg;
 
+endmodule
 
