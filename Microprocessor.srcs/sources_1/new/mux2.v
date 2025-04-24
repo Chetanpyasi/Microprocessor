@@ -23,7 +23,7 @@
 module mux2 (
     input wire mux2_sel,
     input wire [7:0] dr_out,
-    input wire [11:0] ir_out,  // Assuming `ir_out` is 12 bits, using the lower 8 bits
+    input wire [15:0] ir_out, 
     output wire [7:0] mux2_out
 );
 

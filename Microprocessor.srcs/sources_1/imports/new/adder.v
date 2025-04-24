@@ -21,13 +21,12 @@
 
 
 module adder (
-    input clk,                // Clock signal
-    input [7:0] In,           // Input Program Counter (PC)
-    output reg [7:0] Out      // Output Program Counter (incremented PC)
+    input clk,                
+    input [7:0] In,           
+    output reg [7:0] Out      
 );
 
   always @(posedge clk) begin
-    // Increment the input PC by 1 on the rising edge of the clock
     Out <= In + 1;
   end
 

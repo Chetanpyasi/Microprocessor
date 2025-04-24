@@ -124,7 +124,7 @@ module top_tb;
         reset = 0;
 
         // Let it run for 200ns
-        #200;
+        #2000;
 
         // End simulation
         $display("Simulation complete.");

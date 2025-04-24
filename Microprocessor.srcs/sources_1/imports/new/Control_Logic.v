@@ -21,7 +21,7 @@
 
 module Control_Logic (
     input [1:0] stage,
-    input [11:0] IR,      // [11:8] = opcode, [7:0] = operand
+    input [15:0] IR,      
     input [3:0] SR,
     output reg PC_E,
     output reg Acc_E,
@@ -37,8 +37,10 @@ module Control_Logic (
     output reg [3:0] ALU_Mode
 );
 
-    // 8-bit opcodes (upper nibble of IR[11:8] must be 4'b1111 for extended instructions)
-    parameter LDI  = 8'b0000_0000;  // Load Immediate
+    wire [7:0] opcode = {IR[15:8]}; 
+
+   
+    parameter LDI  = 8'b0000_0000; 
     parameter ADD  = 8'b0001_0000;
     parameter SUB  = 8'b0010_0000;
     parameter AND  = 8'b0011_0000;
@@ -53,11 +55,11 @@ module Control_Logic (
     parameter SBC  = 8'b1100_0000;
     parameter INC  = 8'b1101_0000;
     parameter DEC  = 8'b1110_0000;
-    parameter STO  = 8'b1111_0000;  // Store [7:0] = address
-    parameter LOD  = 8'b1111_0001;  // Load [7:0] = address
-    parameter HLT  = 8'b1111_1111;  // Halt
+    parameter STO  = 8'b1111_0000;  
+    parameter LOD  = 8'b1111_0001;  
+    parameter HLT  = 8'b1111_1111;  
 
-    wire [7:0] opcode = {IR[11:8], 4'b0000}; // Extended to 8-bit for comparison
+    
 
     always @(*) begin
         // Default values
@@ -121,8 +123,7 @@ module Control_Logic (
                 end
             end
             
-            2'b11: begin  // WRITEBACK
-                // Optional: Can be used for multi-cycle operations
+            2'b11: begin  
             end
         endcase
     end

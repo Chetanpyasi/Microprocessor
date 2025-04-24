@@ -26,7 +26,7 @@ module top (
 );
 
     wire [7:0] pc_out,adder_out,dmem_out,alu_out,acc_out,dr_out,mux2_out;
-    wire [11:0] ir_out,pmem_out;
+    wire [15:0] ir_out,pmem_out;
     wire [3:0] sr_out;
     
     wire pc_e,acc_e,sr_e,ir_e,dr_e,pmem_e,dmem_e,alu_e;
@@ -45,13 +45,12 @@ module top (
         .reset(reset),
         .enable(pc_e),
         .next_pc(adder_out),
-        .opcode(ir_out[11:8]),
+        .opcode(ir_out[15:8]),
         .pc_out(pc_out)
     );
 
 
     
-    // Instantiate the instruction_register module
     instruction_register IR_unit (
         .clk(clk),
         .reset(reset),
@@ -62,19 +61,16 @@ module top (
 
 
     
-    // Instantiate the accumulator
     accumulator ACC_unit (
         .clk(clk),
         .reset(reset),
-        .acc_en(acc_e),     // Make sure `acc_en` is your control signal
-        .alu_out(alu_out),   // Connect from your ALU output
+        .acc_en(acc_e),     
+        .alu_out(alu_out),  
         .acc_out(acc_out)
     );
 
 
-    wire [7:0] dr_out;
     
-    // Instantiate the data_register module
     data_register DR_unit (
         .clk(clk),
         .reset(reset),
@@ -84,9 +80,7 @@ module top (
     );
     
 
-    wire [3:0] sr_out;
     
-    // Instantiate the status_register module
     status_register SR_unit (
         .clk(clk),
         .reset(reset),
@@ -142,14 +136,12 @@ module top (
         .clk(clk),
         .E(dmem_e),
         .WE(dmem_we),
-        .Addr(ir_out[3:0]),  // Use only 4 bits
+        .Addr(ir_out[3:0]),  
         .DI(acc_out),
         .DO(dmem_out)
     );
 
-    wire [11:0] pmem_out;
     
-    // Instantiate the program_memory module
     program_memory pmem_unit (
         .clk(clk),
         .pmem_le(pmem_le),
@@ -161,12 +153,11 @@ module top (
     
     wire [7:0] mux2_out;
     
-    // Instantiate the mux2 module
     mux2 mux2_unit (
-        .mux2_sel(mux2_sel),   // Select signal to choose between dr_out and ir_out[7:0]
-        .dr_out(dr_out),       // Data input from dr_out
-        .ir_out(ir_out),       // Instruction register output (12 bits, only lower 8 bits used)
-        .mux2_out(mux2_out)    // Output of the mux2
+        .mux2_sel(mux2_sel),   
+        .dr_out(dr_out),       
+        .ir_out(ir_out),       
+        .mux2_out(mux2_out)    
     );
     assign debug_out = acc_out;
 

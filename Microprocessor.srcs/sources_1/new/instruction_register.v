@@ -24,15 +24,15 @@ module instruction_register (
     input wire clk,
     input wire reset,
     input wire ir_e,
-    input wire [11:0] pmem_out,
-    output wire [11:0] ir_out
+    input wire [15:0] pmem_out,
+    output wire [15:0] ir_out
 );
 
-    reg [11:0] IR;
+    reg [15:0] IR;
 
     always @(posedge clk or posedge reset) begin
         if (reset) begin
-            IR <= 12'b0;
+            IR <= 16'b0;
         end else if (ir_e) begin
             IR <= pmem_out;
         end

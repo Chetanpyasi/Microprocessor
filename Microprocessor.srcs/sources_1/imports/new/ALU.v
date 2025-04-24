@@ -21,7 +21,6 @@ module ALU(
     output reg [3:0] Flags
 );
 
-    // ALU operation modes
     parameter ADD         = 4'b0001;  // Addition
     parameter SUB         = 4'b0010;  // Subtraction
     parameter AND         = 4'b0011;  // Bitwise AND
@@ -38,7 +37,7 @@ module ALU(
     parameter INC         = 4'b1101;  // Increment Operand1
     parameter DEC         = 4'b1110;  // Decrement Operand1
 
-    reg [8:0] temp_result; // Extra bit for carry detection
+    reg [8:0] temp_result; 
     always @(*) begin
         Out = 8'b0;
         temp_result = 9'b0;
@@ -48,15 +47,15 @@ module ALU(
                 ADD: begin
                     temp_result = Operand1 + Operand2;
                     Out = temp_result[7:0];
-                    Flags[0] = temp_result[8]; // Carry
+                    Flags[0] = temp_result[8]; 
                     if (Operand1[7] == Operand2[7] && Out[7] != Operand1[7])
-                        Flags[1] = 1; // Set overflow flag
+                        Flags[1] = 1; 
 
                 end
                 SUB: begin
                     temp_result = Operand1 - Operand2;
                     Out = temp_result[7:0];
-                    Flags[0] = Operand1 < Operand2; // Borrow
+                    Flags[0] = Operand1 < Operand2; 
                 end
                 AND: Out = Operand1 & Operand2;
                 OR:  Out = Operand1 | Operand2;
@@ -64,11 +63,11 @@ module ALU(
                 NOT: Out = ~Operand1;
                 SHIFT_LEFT: begin
                     Out = Operand1 << 1;
-                    Flags[0] = Operand1[7]; // Carry out
+                    Flags[0] = Operand1[7]; 
                 end
                 SHIFT_RIGHT: begin
                     Out = Operand1 >> 1;
-                    Flags[0] = Operand1[0]; // Carry out
+                    Flags[0] = Operand1[0]; 
                 end
                 ROTATE_LEFT: begin
                     Out = {Operand1[6:0], CFlags[0]};

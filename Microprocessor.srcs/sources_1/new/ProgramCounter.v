@@ -23,9 +23,9 @@
 module ProgramCounter (
     input clk,
     input reset,
-    input enable,             // pc_e
-    input [7:0] next_pc,      // adder_out
-    input [3:0] opcode,       // ir_out[11:8]
+    input enable,            
+    input [7:0] next_pc,     
+    input [7:0] opcode,      
     output reg [7:0] pc_out
 );
 

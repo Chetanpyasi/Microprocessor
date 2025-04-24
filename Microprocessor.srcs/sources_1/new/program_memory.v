@@ -21,15 +21,15 @@
 
 module program_memory (
     input wire clk,
-    input wire pmem_le,              // Write enable
-    input wire pmem_e,               // Read enable
-    input wire [7:0] pc_out,         // Address from program counter
-    input wire [19:0] acc_out,       // Data to write
-    output wire [19:0] pmem_out      // Data output
+    input wire pmem_le,              
+    input wire pmem_e,               
+    input wire [7:0] pc_out,         
+    input wire [15:0] acc_out,       
+    output wire [15:0] pmem_out      
 );
 
-    reg [19:0] pmem [0:255];         // 256 x 20-bit program memory
-    reg [19:0] pmem_do;
+    reg [15:0] pmem [0:255];         // 256 x 16-bit program memory
+    reg [15:0] pmem_do;
 
     // Load contents from binary file
     initial begin
@@ -48,7 +48,7 @@ module program_memory (
         if (pmem_e) begin
             pmem_do = pmem[pc_out];
         end else begin
-            pmem_do = 20'b0;
+            pmem_do = 16'b0;
         end
     end
 

@@ -22,30 +22,28 @@
 
 module DMem (
     input clk,
-    input E,               // Enable signal
-    input WE,              // Write Enable signal
-    input [3:0] Addr,      // Address for memory
-    input [7:0] DI,        // Data input to memory
-    output reg [7:0] DO    // Data output from memory
+    input E,               
+    input WE,              
+    input [3:0] Addr,      
+    input [7:0] DI,        
+    output reg [7:0] DO    
 );
 
-  reg [7:0] mem [0:15]; // 16 bytes of data memory
+  reg [7:0] mem [0:15]; 
 
-  // Write operation (synchronous)
   always @(posedge clk) begin
     if (E) begin
       if (WE) begin
-        mem[Addr] <= DI;    // Write on WE
+        mem[Addr] <= DI;    
       end
     end
   end
 
-  // Read operation (combinational)
   always @(*) begin
     if (E && !WE) begin
-      DO = mem[Addr];       // Combinational read
+      DO = mem[Addr];       
     end else begin
-      DO = 8'bz;            // Tri-state when not reading
+      DO = 8'bz;            
     end
   end
 

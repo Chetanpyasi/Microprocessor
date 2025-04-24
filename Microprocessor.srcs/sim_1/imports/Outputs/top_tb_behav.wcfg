@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,000.001 ns"></ZoomEndTime>
-      <Cursor1Time time="155.000 ns"></Cursor1Time>
+      <ZoomEndTime time="220.001 ns"></ZoomEndTime>
+      <Cursor1Time time="22.864 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="243"></NameColumnWidth>
+      <NameColumnWidth column_width="218"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="35" />
+   <WVObjectSize size="17" />
    <wvobject fp_name="/top_tb/uut/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -27,10 +27,6 @@
    <wvobject fp_name="/top_tb/uut/reset" type="logic">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/ACC" type="array">
-      <obj_property name="ElementShortName">ACC[7:0]</obj_property>
-      <obj_property name="ObjectShortName">ACC[7:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/uut/debug_out" type="array">
       <obj_property name="ElementShortName">debug_out[7:0]</obj_property>
@@ -40,21 +36,16 @@
       <obj_property name="ElementShortName">pc_out[7:0]</obj_property>
       <obj_property name="ObjectShortName">pc_out[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/uut/adder_out" type="array">
-      <obj_property name="ElementShortName">adder_out[7:0]</obj_property>
-      <obj_property name="ObjectShortName">adder_out[7:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/top_tb/uut/ir_out" type="array">
-      <obj_property name="ElementShortName">ir_out[11:0]</obj_property>
-      <obj_property name="ObjectShortName">ir_out[11:0]</obj_property>
+      <obj_property name="ElementShortName">ir_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ir_out[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/uut/pmem_out" type="array">
-      <obj_property name="ElementShortName">pmem_out[11:0]</obj_property>
-      <obj_property name="ObjectShortName">pmem_out[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/dmem_out" type="array">
-      <obj_property name="ElementShortName">dmem_out[7:0]</obj_property>
-      <obj_property name="ObjectShortName">dmem_out[7:0]</obj_property>
+      <obj_property name="ElementShortName">pmem_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">pmem_out[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/uut/alu_out" type="array">
       <obj_property name="ElementShortName">alu_out[7:0]</obj_property>
@@ -63,14 +54,6 @@
    <wvobject fp_name="/top_tb/uut/acc_out" type="array">
       <obj_property name="ElementShortName">acc_out[7:0]</obj_property>
       <obj_property name="ObjectShortName">acc_out[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/dr_out" type="array">
-      <obj_property name="ElementShortName">dr_out[7:0]</obj_property>
-      <obj_property name="ObjectShortName">dr_out[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/sr_out" type="array">
-      <obj_property name="ElementShortName">sr_out[3:0]</obj_property>
-      <obj_property name="ObjectShortName">sr_out[3:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/uut/mux2_out" type="array">
       <obj_property name="ElementShortName">mux2_out[7:0]</obj_property>
@@ -92,72 +75,21 @@
       <obj_property name="ElementShortName">ir_e</obj_property>
       <obj_property name="ObjectShortName">ir_e</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/uut/dr_e" type="logic">
-      <obj_property name="ElementShortName">dr_e</obj_property>
-      <obj_property name="ObjectShortName">dr_e</obj_property>
-   </wvobject>
    <wvobject fp_name="/top_tb/uut/pmem_e" type="logic">
       <obj_property name="ElementShortName">pmem_e</obj_property>
       <obj_property name="ObjectShortName">pmem_e</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/dmem_e" type="logic">
-      <obj_property name="ElementShortName">dmem_e</obj_property>
-      <obj_property name="ObjectShortName">dmem_e</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/dmem_we" type="logic">
-      <obj_property name="ElementShortName">dmem_we</obj_property>
-      <obj_property name="ObjectShortName">dmem_we</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/uut/alu_e" type="logic">
       <obj_property name="ElementShortName">alu_e</obj_property>
       <obj_property name="ObjectShortName">alu_e</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/uut/mux2_sel" type="logic">
-      <obj_property name="ElementShortName">mux2_sel</obj_property>
-      <obj_property name="ObjectShortName">mux2_sel</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/pmem_le" type="logic">
-      <obj_property name="ElementShortName">pmem_le</obj_property>
-      <obj_property name="ObjectShortName">pmem_le</obj_property>
-   </wvobject>
    <wvobject fp_name="/top_tb/uut/alu_mode" type="array">
       <obj_property name="ElementShortName">alu_mode[3:0]</obj_property>
       <obj_property name="ObjectShortName">alu_mode[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/uut/stage" type="array">
       <obj_property name="ElementShortName">stage[1:0]</obj_property>
       <obj_property name="ObjectShortName">stage[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/PC" type="array">
-      <obj_property name="ElementShortName">PC[7:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/IR" type="array">
-      <obj_property name="ElementShortName">IR[11:0]</obj_property>
-      <obj_property name="ObjectShortName">IR[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/DR" type="array">
-      <obj_property name="ElementShortName">DR[7:0]</obj_property>
-      <obj_property name="ObjectShortName">DR[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/SR" type="array">
-      <obj_property name="ElementShortName">SR[3:0]</obj_property>
-      <obj_property name="ObjectShortName">SR[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/pmem" type="array">
-      <obj_property name="ElementShortName">pmem[0:255][11:0]</obj_property>
-      <obj_property name="ObjectShortName">pmem[0:255][11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/pmem_do" type="array">
-      <obj_property name="ElementShortName">pmem_do[11:0]</obj_property>
-      <obj_property name="ObjectShortName">pmem_do[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/mux2_out_reg" type="array">
-      <obj_property name="ElementShortName">mux2_out_reg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">mux2_out_reg[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/uut/alu_flags" type="array">
-      <obj_property name="ElementShortName">alu_flags[3:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_flags[3:0]</obj_property>
    </wvobject>
 </wave_config>
