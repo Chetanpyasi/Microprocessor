@@ -56,32 +56,42 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param synth.incrementalSynthesisCache C:/Users/chetan/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-4304-DESKTOP-P7OTN0S/incrSyn
-set_param checkpoint.writeSynthRtdsInDcp 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_param chipscope.maxJobs 4
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/Users/chetan/project/Microprocessor/Microprocessor.cache/wt [current_project]
 set_property parent.project_path C:/Users/chetan/project/Microprocessor/Microprocessor.xpr [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo c:/Users/chetan/project/Microprocessor/Microprocessor.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+add_files c:/Users/chetan/project/Microprocessor/program.coe
+read_mem C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/program.mem
 read_verilog -library xil_defaultlib {
   C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/imports/new/ALU.v
   C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/imports/new/Control_Logic.v
   C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/imports/new/DMem.v
-  C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/imports/new/MUX1.v
   C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/imports/new/adder.v
   C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/top.v
+  C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/ProgramCounter.v
+  C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/instruction_register.v
+  C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/accumulator.v
+  C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/data_register.v
+  C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/status_register.v
+  C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/program_memory.v
+  C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/new/mux2.v
 }
+read_ip -quiet c:/Users/chetan/project/Microprocessor/Microprocessor.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/chetan/project/Microprocessor/Microprocessor.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -91,7 +101,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/constrs_1/new/Master.xdc
+set_property used_in_implementation false [get_files C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/constrs_1/new/Master.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/chetan/project/Microprocessor/Microprocessor.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

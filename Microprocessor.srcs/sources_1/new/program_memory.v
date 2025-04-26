@@ -28,13 +28,10 @@ module program_memory (
     output wire [15:0] pmem_out      
 );
 
-    reg [15:0] pmem [0:255];         // 256 x 16-bit program memory
+    (* rom_style = "block" *) reg [15:0] pmem [0:255];          // 256 x 16-bit program memory
     reg [15:0] pmem_do;
 
-    // Load contents from binary file
-    initial begin
-        $readmemb("program.mem", pmem);  // Use binary-formatted memory file
-    end
+
 
     // Write to memory
     always @(posedge clk) begin
